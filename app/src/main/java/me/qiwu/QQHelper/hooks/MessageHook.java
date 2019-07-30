@@ -61,25 +61,25 @@ public class MessageHook extends ReflectHelper {
     private ClassLoader classLoader;
     public MessageHook(ClassLoader classLoader) throws ClassNotFoundException {
         mQQAppInterface=classLoader.loadClass(QQAppInterface);
-        //mMessageInfo=classLoader.loadClass(MessageInfo);
-        mPttItemBuilder=classLoader.loadClass("acyw");
-        //mMessageForPtt=classLoader.loadClass(MessageForPtt);
-        mChatActivityFacade=classLoader.loadClass("aaae");
-        //mQQCustomMenu=classLoader.loadClass(QQCustomMenu);
+        mMessageInfo=classLoader.loadClass(MessageInfo);
+        mPttItemBuilder=classLoader.loadClass(PttItemBuilder);
+        mMessageForPtt=classLoader.loadClass(MessageForPtt);
+        mChatActivityFacade=classLoader.loadClass(ChatActivityFacade);
+        mQQCustomMenu=classLoader.loadClass(QQCustomMenu);
         mXEditTextEx=classLoader.loadClass(XEditTextEx);
         mBaseChatPie = XposedHelpers.findClass("com.tencent.mobileqq.activity.BaseChatPie",classLoader);
         this.classLoader=classLoader;
     }
 
     public void init() throws InvocationTargetException, IllegalAccessException {
-        //cancelAtAll();
+        cancelAtAll();
         if (settingUtils.getBoolean(SettingUtils.SETTING_KEY_PTTSHARE)){
             pttShare();
         }
-        //showChatTail();
+        showChatTail();
     }
 
-    /*private void showChatTail(){
+    private void showChatTail(){
         if (!settingUtils.getBoolean(SettingUtils.SETTING_KEY_STARTCHATTAIL))return;
         XposedHelpers.findAndHookMethod(mBaseChatPie, "a", String.class, "com.tencent.mobileqq.activity.ChatActivityFacade$SendMsgParams", ArrayList.class, new XC_MethodHook() {
             @Override
@@ -125,7 +125,7 @@ public class MessageHook extends ReflectHelper {
                 }
             }
         });
-    }*/
+    }
 
 
     //语音转发

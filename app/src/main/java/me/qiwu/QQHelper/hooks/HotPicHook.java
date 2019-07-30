@@ -81,7 +81,7 @@ public class HotPicHook extends ReflectHelper{
                             Object viewHolder=param.args[1];
                             if (viewHolder==null)return;
                             Object baseChatItemLayout=getObjectFieldByClass(mBaseBubbleBuilder$ViewHolder,viewHolder,"a","BaseChatItemLayout");
-                            boolean isFlashPic=(boolean)XposedBridge.invokeOriginalMethod(method,mFlashPicHelper.newInstance(),new Object[]{param.args[0]});
+                            boolean isFlashPic=(boolean)XposedBridge.invokeOriginalMethod(method,null,new Object[]{param.args[0]});
                             XposedHelpers.callMethod(baseChatItemLayout,"setTailMessage",isFlashPic,"闪照",null);
                         }
                     });

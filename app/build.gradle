@@ -1,0 +1,27 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "28.0.2"
+    defaultConfig {
+        applicationId "me.qiwu.QQHelper"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 32
+        versionName "1.3.3"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+
+dependencies {
+    compileOnly fileTree(include: ['*.jar'], dir: 'libs')
+    //compile files('libs/XposedBridgeApi-54.jar')
+    implementation files('libs/classes(1).jar')
+}

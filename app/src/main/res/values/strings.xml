@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">QQHelper</string>
+    <string name="revokeMessage">尝试撤回一条消息</string>
+    <string name="revokeMessage_admin">尝试撤回一条成员消息</string>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="way">
+    <item>允许临时登录</item>
+    <item>授权永久登录</item>
+    </string-array>
+
+    <string-array name="way_value">
+        <item>允许临时登录</item>
+        <item>授权永久登录</item>
+    </string-array>
+</resources>
